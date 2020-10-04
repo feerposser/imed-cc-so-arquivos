@@ -1,4 +1,6 @@
-import os, sys
+import os
+
+pastas = ["Pasta1", "Pasta2"]
 
 
 def func1():
@@ -7,9 +9,31 @@ def func1():
         print(file.read())
 
 
-print(os.getcwd())
+def func2():
+    print(os.getcwd())
+
+
+def func3():
+    for pasta in pastas:
+        for arquivo in os.listdir(pasta):
+            pasta = os.path.join(os.getcwd(), pasta)
+            print("pasta: ", pasta)
+            print("arquivo", arquivo)
+            with open(os.path.join(pasta, arquivo), "r") as file:
+                print(file.read())
+            print("")
+        print("-"*100)
+
+
+# print(os.listdir()[-2:])
+
+print("1: le arq6 windows\n2: mostra caminho global\n3:mostra os caminhos e le os arquivos")
 
 opcao = int(input("opcao: "))
 
 if opcao == 1:
     func1()
+elif opcao == 2:
+    func2()
+elif opcao == 3:
+    func3()
