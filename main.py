@@ -10,7 +10,10 @@ def func1():
 
 
 def func2():
-    print(os.getcwd())
+    print("Caminho:", os.getcwd())
+    with open(os.path.join(str(os.getcwd()), "Pasta2", "arq6.txt")) as file:
+        print("caminho: ", file.name)
+        print(file.read())
 
 
 def func3():
